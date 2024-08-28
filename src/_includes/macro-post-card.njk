@@ -1,0 +1,25 @@
+{% macro card(post) %}
+<div class="dark:bg-slate-600 bg-slate-900 duration-200 rounded-md m-2">
+    <div class="py-10 px-4 bg-{{post.colour}}
+        text-white
+        border-slate-900
+        border-2
+        rounded-md
+        -translate-x-2 
+        -translate-y-2
+        duration-200
+        hover:-translate-x-1.5 
+        hover:-translate-y-1.5
+        text-3xl font-bold">
+        <div>
+        {{ post.emoji }}
+        </div>
+        <div>
+        {{ post.title }}
+        </div>
+        <div class="text-sm font-normal">
+        {{ post.summary }}
+        </div>
+    </div>
+</div>
+{% endmacro %}

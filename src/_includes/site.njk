@@ -1,0 +1,17 @@
+<script>
+    const el = document.querySelector(".header")
+    const observer = new IntersectionObserver( 
+    ([e]) => {
+        e.target.classList.toggle("dark:bg-slate-900", e.intersectionRatio == 1)
+        e.target.classList.toggle("shadow-lg", e.intersectionRatio < 1)
+        e.target.classList.toggle("dark:bg-slate-700", e.intersectionRatio < 1)
+    },
+    { threshold: [1] }
+    );
+
+    observer.observe(el);
+</script>
+<script>
+    const btn = document.querySelector(".colour-theme")
+    btn.onclick = () => document.querySelector("html").classList.toggle("dark")
+</script>
