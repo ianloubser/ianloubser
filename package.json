@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npm-run-all -p dev:*",
-    "build": "npx @11ty/eleventy && tailwindcss -i src/css/styles.sass -o _site/css/styles.css",
+    "build": "npx @11ty/eleventy && tailwindcss -i src/css/styles.css -o _site/css/styles.css",
     "dev:11ty": "eleventy --serve --quiet",
     "dev:css": "tailwindcss -i src/css/styles.css -o _site/css/styles.css --watch --postcss"
   },
