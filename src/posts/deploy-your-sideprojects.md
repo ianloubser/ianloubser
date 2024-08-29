@@ -7,9 +7,8 @@ date: 2024-08-02
 colour: blue-400
 tags: 
     - post
-    - Draft
     - CI
-    - Sideproject
+    - Prototype
     - Golang
 modified: 2022-01-09 00:00:00
 order: 1
@@ -26,7 +25,7 @@ Now for deployments - I could do this manually, SSH into the server everytime - 
 <br/>
 For this I've setup another virtual host in my caddyfile looking something like this:
 
-```
+```nginx
 ci.apps.mydomain.com {
 
         @apirequests {
@@ -44,8 +43,8 @@ This allows me to trigger a sequence of tasks & steps to update any app to a spe
 merely waits for a call to `/deploy` with a post body something like this:
 ```json
 {
-    project: 'app-abc',
-    commit: '1251251513513'
+    "project": "app-abc",
+    "commit": "033dccaa9799b866e25d3a7423849e70a1e0b5ee"
 }
 ```
 
@@ -75,7 +74,7 @@ Yes I could've saved some time by just using docker, yes there are other ways - 
 <br/>
 
 Example toml file:
-```
+```toml
 [super-duper]
 repo = github.com/ianloubser/super-duper-app.git
 path = /Users/bitnami/hosting/apps/super-duper-app

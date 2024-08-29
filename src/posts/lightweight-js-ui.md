@@ -7,8 +7,8 @@ date: 2024-08-02
 colour: green-400
 tags: 
     - post
-    - Ideas
-    - Side projects
+    - Idea
+    - Prototype
 modified: 2022-01-09 00:00:00
 order: 1
 summary: A no compiling, no state management, lightweight & declarative JS UI framework.
@@ -35,28 +35,28 @@ var hot = HotJS()
 
 Let's define a simple counter UI updating the elapsed time after every second elapses, the code would look like this:
 ```javascript
-  const Timer = () => {
-    let elapsed = 0;
-    setInterval(() => {
-      elapsed++;
-      hot.flush(['timer'])
-    }, 1000)
+const Timer = () => {
+  let elapsed = 0;
+  setInterval(() => {
+    elapsed++;
+    hot.flush(['timer'])
+  }, 1000)
 
-    return hot.span({
-      id: 'timer',
-      style: {
-      	padding: '10px'
-      },
-      child: () => elapsed
-    })
-  }
-  
-  var app = hot.div([
-    hot.span('Seconds elapsed: '),
-    Timer
-  ])
+  return hot.span({
+    id: 'timer',
+    style: {
+      padding: '10px'
+    },
+    child: () => elapsed
+  })
+}
 
-  document.body.appendChild(app)
+var app = hot.div([
+  hot.span('Seconds elapsed: '),
+  Timer
+])
+
+document.body.appendChild(app)
 ```
 
 There you have it. No long dependency list, no setups of state or hooks and no compiler needed, just plain ol' javascript. You use declarative syntax to define your Element's properties and rules through `hot.<element_type>(options)`. Where `options` can be another element, a list of elements, a function, plaintext or an object to pass as props to the underlying `Element` object. 
@@ -93,7 +93,6 @@ el2.innerHTML = 'some text'
 
 At first glance the above doesn't necessarily look too much like an improvement. But the key improvement introduced by HotJS is the `child` property. This allows us to nest as many elements as we'de like to get more advanced tree structures, take for example a basic todo app:
 ```javascript
-
 const CreateTodo = (todos) => {
   let inputState = '';
   
@@ -157,4 +156,4 @@ var app = hot.div([
 document.body.appendChild(app)
 ```
 
-Writing the above todo code with pure `createElement` and the `Element` interface would be an absolute headache. You can check the todo fiddle here https://jsfiddle.net/loubserian/nL6bd0mc/134 .
+Writing the above todo code with pure `createElement` and the `Element` interface would be an absolute headache. You can check the [todo fiddle here](https://jsfiddle.net/loubserian/nL6bd0mc/134).
