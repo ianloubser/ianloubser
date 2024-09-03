@@ -26,7 +26,7 @@ a:hover {
 
 
 article {
-  @apply prose dark:prose-invert max-w-screen-md mx-auto;
+  @apply prose dark:prose-invert max-w-screen-md mx-auto px-5;
 
   font-size: 16px;
   line-height: 28px;

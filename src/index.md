@@ -8,7 +8,7 @@ order: 1
 
 {% import 'macro-post-card.njk' as macro %}
 
-<div class="container max-w-screen-lg mx-auto text-xl">
+<div class="container max-w-screen-lg mx-auto text-xl px-5">
 	<div class="dark:bg-blue-400 bg-slate-900 duration-200 rounded-md m-2">
 		<div class="py-10 px-4 bg-purple-400
 			text-white
@@ -27,7 +27,7 @@ order: 1
 		<!-- <div class="py-4">Posts</div> -->
 		<div class="flex flex-row flex-wrap">
 		{%- for post in collections.posts -%}
-		<a class="hover:no-underline w-1/2" href="{{post.url}}">
+		<a class="hover:no-underline sm:w-1/2" href="{{post.url}}">
 			{{ macro.card(post.data) }}
 		</a>
 		{%- endfor -%}
